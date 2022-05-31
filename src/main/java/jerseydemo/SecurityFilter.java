@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.security.Principal;
 
 @Provider
-@Priority(Priorities.AUTHENTICATION) //strict genomen niet nodig
+@Priority(Priorities.AUTHENTICATION) //Nodig omdat @RolesAllowed op Priorities.Authorization zit
 public class SecurityFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
