@@ -21,6 +21,10 @@ export class KoffieService {
             headers: {
                 'Content-Type': 'application/json'
             }
+        }).then(r => {
+            if(r.status < 200 || r.status > 300){
+                return r.text().then(t => {throw t});
+            }
         });
     }
 }

@@ -2,6 +2,7 @@ package jerseydemo;
 
 import domein.KoffieSoort;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class KoffieResource {
     @GET
     @Produces("application/json")
     public List<KoffieSoort> getAlleKoffie(){
-//        throw new RuntimeException("Dummyfout");
+        System.out.println("Ik zit in een method!");
 
         return StartupListener.alleKoffie;
     }
@@ -30,6 +31,7 @@ public class KoffieResource {
     @POST
     @Consumes("application/json")
     @Produces("application/json")
+    @RolesAllowed("beheerder")
     public void voegSoortToe(KoffieSoort kf){
         StartupListener.alleKoffie.add(kf);
     }
@@ -38,6 +40,7 @@ public class KoffieResource {
     @Consumes("application/json")
     @Produces("application/json")
     @Path("{code}")
+    @RolesAllowed("beheerder")
     public KoffieSoort updateKoffie(@PathParam("code") String barcode, KoffieSoort gestuurdeKoffie){
         for(KoffieSoort kf: StartupListener.alleKoffie){
             if(kf.getBarcode().equals(barcode)){
@@ -52,6 +55,7 @@ public class KoffieResource {
 
     @DELETE
     @Path("{code}")
+    @RolesAllowed("beheerder")
     public void verwijderKoffie(@PathParam("code") String barcode){
         for(KoffieSoort kf: StartupListener.alleKoffie){
             if(kf.getBarcode().equals(barcode)){
