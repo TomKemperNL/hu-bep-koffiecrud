@@ -18,6 +18,7 @@ refresh();
 
 let furmpie = document.querySelector('#koffieform')
 let knuppie = document.querySelector('#opsturen')
+let inlogKnop = document.querySelector('#inloggen');
 
 knuppie.addEventListener('click', e => {
     e.preventDefault();
@@ -37,5 +38,15 @@ knuppie.addEventListener('click', e => {
     })
 });
 
+inlogKnop.addEventListener('click', e => {
+    e.preventDefault();
 
+    let inlogForm = document.forms['inlogform'];
+    let data = {
+        username: inlogForm.username.value,
+        password: inlogForm.password.value,
+    }
+
+    koffieService.login(data);
+});
 
