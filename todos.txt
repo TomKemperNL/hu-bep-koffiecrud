@@ -1,0 +1,30 @@
+Probleem 1: 
+Hoe krijg ik die username en password bij de server?
+=> In de headers frotten
+
+Probleem 2a:
+Overal code aanpassen, bah
+Oplossing => filter
+
+Probleem 3a:
+Alles is nu beveiligt??
+=> Rolesallowed + Feature registreren + Priority instellen!
+
+Probleem 4a:
+Wie is er eigenlijk ingelogd (in de resource)?
+=> SecurityContext + @Context
+
+Probleem 2b:
+Elke keer username + password meesturen
+=> Stempeltje zit in elkaar => JWT
+
+Probleem 3b:
+Hoe kom ik aan dat stempeltje?
+Loginresource voor gemaakt
+
+Probleem 4b:
+Hoe levert de gebruiker het stempeltje aan?
+=> In de headers frotten
+
+Probleem 5b:
+Hoe ziet een net JWT eruit?
